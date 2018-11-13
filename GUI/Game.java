@@ -2,12 +2,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.*;
+import java.io.*;
 
 public class Game extends JFrame
 {
   JRadioButton randomButton;
   JRadioButton customButton;
   JRadioButton fileButton;
+  private File inputfile;
   JButton createButton = new JButton("Create graph");
 
   FlowLayout gameLayout = new FlowLayout();
@@ -18,7 +20,12 @@ public class Game extends JFrame
 
   public Game(String name)
   {
-      super(name);
+    super(name);
+  }
+  public Game(String name, File inputfile)
+  {
+    super(name);
+    this.inputfile = inputfile;
   }
 
   public void addComponentsToPane(final Container pane)
@@ -28,7 +35,7 @@ public class Game extends JFrame
     JPanel controls = new JPanel();
     controls.setLayout(new FlowLayout());
     JLabel label= new JLabel();
-    label.setIcon(new ImageIcon("/Users/sterben/Desktop/Java/Project/GUI/ring.jpg"));
+    label.setIcon(new ImageIcon("/Users/sterben/Desktop/Java/Project/Chromatic-Number/GUI/ring.jpg"));
     //create radiobuttons
     randomButton = new JRadioButton(random);
     randomButton.setActionCommand(random);
@@ -49,6 +56,41 @@ public class Game extends JFrame
     panel.add(new JButton("Mode 1"));
     panel.add(new JButton("Mode 2"));
     panel.add(new JButton("Mode 3"));
+    //set action listener
+    createButton.addActionListener(new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+            String command = group.getSelection().getActionCommand();
+            //Check the selection
+            if (command.equals("Random"))
+            {
+              GraphGenerating g = new GraphGenerating();
+              g.showAdjacencyMatrix();
+              System.out.println("-----------");
+            }
+            else if (command.equals("Custom"))
+            {
+              GraphGenerating g = new GraphGenerating(3,10);
+              g.showAdjacencyMatrix();
+              System.out.println("-----------");
+            }
+            else
+            {
+              ReadGraph g = new ReadGraph(inputfile);
+              int[][] m = g.readMatrix();
+              for (int i = 0; i < m.length; i++)
+              { for (int j = 0; j < m.length; j++)
+                { System.out.print(m[i][j] + " ");
+                }
+                System.out.println("");
+              }
+              System.out.println("-----------");
+            }
+            //update the experiment layout
+            panel.validate();
+            panel.repaint();
+        }
+    });
+
     pane.add(panel, BorderLayout.NORTH);
     pane.add(controls, BorderLayout.SOUTH);
     pane.add(label);
@@ -56,7 +98,8 @@ public class Game extends JFrame
 
   private static void createAndShowGUI() {
       //Create and set up the window.
-      Game frame = new Game("Chromatic Number Game");
+      File inputfile = new File("/Users/sterben/Desktop/Java/Project/Chromatic-Number/GUI", "graph.txt");
+      Game frame = new Game("Chromatic Number Game", inputfile);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       //Set up the content pane.
       frame.addComponentsToPane(frame.getContentPane());
