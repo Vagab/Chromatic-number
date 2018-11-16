@@ -16,7 +16,7 @@ public class GraphGenerating
   }
   public GraphGenerating()
   {
-    this.numberOfVerticies = this.randomWithRange(3,15);
+    this.numberOfVerticies = this.randomWithRange(3,50);
     this.numberOfEdges = this.randomWithRange(0, ((this.numberOfVerticies * (this.numberOfVerticies - 1) / 2)));
     int[][] adjacencyMatrix = new int[this.numberOfVerticies][this.numberOfVerticies];
     this.adjacencyMatrix = adjacencyMatrix;
@@ -24,7 +24,7 @@ public class GraphGenerating
 
   public boolean isOkay()
   {
-    if (this.numberOfEdges > (this.numberOfVerticies * (this.numberOfVerticies - 1) / 2))
+    if (this.numberOfEdges > (this.numberOfVerticies * (this.numberOfVerticies - 1) / 2) && (numberOfEdges > 0) && (numberOfVerticies) > 0)
     {return false;}
     else
     {return true;}

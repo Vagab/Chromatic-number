@@ -14,7 +14,7 @@ public class Game extends JFrame
 
   FlowLayout gameLayout = new FlowLayout();
 
-  final String random = "Random";
+  final String random = "Randomize";
   final String custom = "Custom";
   final String file = "File";
 
@@ -61,7 +61,7 @@ public class Game extends JFrame
         public void actionPerformed(ActionEvent e){
             String command = group.getSelection().getActionCommand();
             //Check the selection
-            if (command.equals("Random"))
+            if (command.equals("Randomize"))
             {
               GraphGenerating g = new GraphGenerating();
               g.showAdjacencyMatrix();
@@ -69,7 +69,12 @@ public class Game extends JFrame
             }
             else if (command.equals("Custom"))
             {
-              GraphGenerating g = new GraphGenerating(3,10);
+              Scanner in = new Scanner(System.in);
+              System.out.println("Enter the number of vertices");
+              int vertices = in.nextInt();
+              System.out.println("Enter the number of edges");
+              int edges = in.nextInt();
+              GraphGenerating g = new GraphGenerating(edges, vertices);
               g.showAdjacencyMatrix();
               System.out.println("-----------");
             }
