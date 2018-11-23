@@ -70,9 +70,10 @@ public class Game extends JFrame
             else if (command.equals("Custom"))
             {
               Scanner in = new Scanner(System.in);
-              System.out.println("Enter the number of vertices");
+              System.out.println("Enter the number of vertices: ");
               int vertices = in.nextInt();
-              System.out.println("Enter the number of edges");
+              System.out.println("Enter the number of edges(note, that number of edges has to be greater" +
+                      " then half of the number of vertices): ");
               int edges = in.nextInt();
               GraphGenerating g = new GraphGenerating(edges, vertices);
               g.showAdjacencyMatrix();

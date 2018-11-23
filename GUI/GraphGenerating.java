@@ -16,15 +16,19 @@ public class GraphGenerating
   }
   public GraphGenerating()
   {
-    this.numberOfVerticies = this.randomWithRange(3,50);
-    this.numberOfEdges = this.randomWithRange(0, ((this.numberOfVerticies * (this.numberOfVerticies - 1) / 2)));
+    this.numberOfVerticies = this.randomWithRange(5,20);
+    this.numberOfEdges = this.randomWithRange(this.numberOfVerticies/2, ((this.numberOfVerticies * (this.numberOfVerticies - 1) / 2)));
     int[][] adjacencyMatrix = new int[this.numberOfVerticies][this.numberOfVerticies];
     this.adjacencyMatrix = adjacencyMatrix;
   }
 
+  public int getNumberOfVerticies()
+  {return this.numberOfVerticies;}
+
   public boolean isOkay()
   {
-    if (this.numberOfEdges > (this.numberOfVerticies * (this.numberOfVerticies - 1) / 2) && (numberOfEdges > 0) && (numberOfVerticies) > 0)
+    if (this.numberOfEdges > (this.numberOfVerticies * (this.numberOfVerticies - 1) / 2)
+            || (numberOfEdges < 0) || (numberOfVerticies < 0) || (this.numberOfEdges <= this.numberOfVerticies/2))
     {return false;}
     else
     {return true;}
@@ -68,7 +72,8 @@ public class GraphGenerating
           this.adjacencyMatrix[col][row] = 1;
           count++;}
       }
-      for (int i = 0; i < adjacencyMatrix.length; i++)
+
+      for (int i = 0; i < this.adjacencyMatrix.length; i++)
       {
         this.adjacencyMatrix[i][i] = 1;
       }
