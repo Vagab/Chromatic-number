@@ -43,7 +43,7 @@ class ChartComponent extends JComponent
 	
 	public void paintComponent(Graphics g) {
 
-		GraphGenerating graph1 = new GraphGenerating();    //Here we generate the graph by calling the GraphGenerating object
+		GraphGenerating graph1 = new GraphGenerating(50,50);    //Here we generate the graph by calling the GraphGenerating object
 
 		int[][] nodes;    //We create a matrix that will be the copy of the one generated in the GraphGenerating Object
 

@@ -11,6 +11,9 @@ public class Game extends JFrame
   JRadioButton fileButton;
   private File inputfile;
   JButton createButton = new JButton("Create graph");
+  JButton Mode1 = new JButton("Mode 1");
+  JButton Mode2 = new JButton("Mode 2");
+  JButton Mode3 = new JButton("Mode 3");
 
   FlowLayout gameLayout = new FlowLayout();
 
@@ -53,9 +56,6 @@ public class Game extends JFrame
     controls.add(customButton);
     controls.add(fileButton);
     controls.add(createButton);
-    panel.add(new JButton("Mode 1"));
-    panel.add(new JButton("Mode 2"));
-    panel.add(new JButton("Mode 3"));
     //set action listener
     createButton.addActionListener(new ActionListener(){
         public void actionPerformed(ActionEvent e){
@@ -97,9 +97,31 @@ public class Game extends JFrame
         }
     });
 
-    pane.add(panel, BorderLayout.NORTH);
-    pane.add(controls, BorderLayout.SOUTH);
-    pane.add(label);
+      Mode1.addActionListener(new ActionListener(){
+          public void actionPerformed(ActionEvent e){
+              Component f = panel.getTopLevelAncestor();
+              ((Window)f).dispose();
+              JFrame frame = new JFrame();
+
+              frame.setSize(1200, 1450);
+              frame.setTitle("Graph Generator");
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+              JComponent component = new ChartComponent();
+              frame.add(component);
+
+
+              frame.setVisible(true);
+          }
+      });
+
+      panel.add(Mode1);
+      panel.add(Mode2);
+      panel.add(Mode3);
+      pane.add(panel, BorderLayout.NORTH);
+      pane.add(controls, BorderLayout.SOUTH);
+      pane.add(label);
   }
 
   private static void createAndShowGUI() {
