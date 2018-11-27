@@ -10,6 +10,9 @@ public class Game extends JFrame
   JRadioButton customButton;
   JRadioButton fileButton;
   private File inputfile;
+  private int[][] m;
+  private String aWay;
+ // private GraphGenerating g;
   JButton createButton = new JButton("Create graph");
   JButton Mode1 = new JButton("Mode 1");
   JButton Mode2 = new JButton("Mode 2");
@@ -24,6 +27,7 @@ public class Game extends JFrame
   public Game(String name)
   {
     super(name);
+    //this.m = m;
   }
   public Game(String name, File inputfile)
   {
@@ -31,8 +35,12 @@ public class Game extends JFrame
     this.inputfile = inputfile;
   }
 
+  public  String getWay()
+  {return aWay;}
+
   public void addComponentsToPane(final Container pane)
   {
+    //this.m = m;
     final JPanel panel = new JPanel();
     panel.setLayout(gameLayout);
     JPanel controls = new JPanel();
@@ -63,33 +71,36 @@ public class Game extends JFrame
             //Check the selection
             if (command.equals("Randomize"))
             {
-              GraphGenerating g = new GraphGenerating();
-              g.showAdjacencyMatrix();
-              System.out.println("-----------");
+              aWay = "Randomize";
+              //this.m = new GraphGenerating();
+              /*g.showAdjacencyMatrix();
+              System.out.println("-----------");*/
             }
             else if (command.equals("Custom"))
             {
-              Scanner in = new Scanner(System.in);
+                aWay = "Custom";
+               /* Scanner in = new Scanner(System.in);
               System.out.println("Enter the number of vertices: ");
               int vertices = in.nextInt();
               System.out.println("Enter the number of edges(note, that number of edges has to be greater" +
                       " then half of the number of vertices): ");
-              int edges = in.nextInt();
-              GraphGenerating g = new GraphGenerating(edges, vertices);
-              g.showAdjacencyMatrix();
-              System.out.println("-----------");
+              int edges = in.nextInt();*/
+              //this.m = new GraphGenerating(edges, vertices);
+              /*g.showAdjacencyMatrix();
+              System.out.println("-----------");*/
             }
-            else
-            {
-              ReadGraph g = new ReadGraph(inputfile);
-              int[][] m = g.readMatrix();
-              for (int i = 0; i < m.length; i++)
+            else {
+                aWay = "File";
+                ReadGraph graph = new ReadGraph(inputfile);
+                //this.m = graph.readMatrix();
+              /*for (int i = 0; i < m.length; i++)
               { for (int j = 0; j < m.length; j++)
                 { System.out.print(m[i][j] + " ");
                 }
                 System.out.println("");
               }
               System.out.println("-----------");
+            }*/
             }
             //update the experiment layout
             panel.validate();
@@ -103,12 +114,12 @@ public class Game extends JFrame
               ((Window)f).dispose();
               JFrame frame = new JFrame();
 
-              frame.setSize(1200, 1450);
+              frame.setSize(1600, 1450);
               frame.setTitle("Graph Generator");
               frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-              JComponent component = new ChartComponent();
+              JComponent component = new ChartComponent(aWay, inputfile);
               frame.add(component);
 
 

@@ -16,7 +16,8 @@ public class GraphGenerating
   }
   public GraphGenerating()
   {
-    this.numberOfVerticies = this.randomWithRange(5,20);
+    this.numberOfVerticies = this.randomWithRange(20,50);
+    System.out.println(this.numberOfVerticies);
     this.numberOfEdges = this.randomWithRange(this.numberOfVerticies/2, ((this.numberOfVerticies * (this.numberOfVerticies - 1) / 2)));
     int[][] adjacencyMatrix = new int[this.numberOfVerticies][this.numberOfVerticies];
     this.adjacencyMatrix = adjacencyMatrix;

@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import java.applet.Applet;
 import java.awt.*;
 import java.util.Random;
+import java.util.*;
+import java.io.*;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
@@ -16,7 +18,7 @@ import javax.swing.ImageIcon;
 
 public class GraphOval
 {
-	public static void main(String[] args)
+	/*public static void main(String[] args)
 	{
 		JFrame frame = new JFrame();
 		
@@ -30,7 +32,7 @@ public class GraphOval
 		
 		
 		frame.setVisible(true);
-	}
+	}*/
 }
 
 class ChartComponent extends JComponent
@@ -39,17 +41,44 @@ class ChartComponent extends JComponent
 	private static Graphics g;
 	private static int VERTICES;
 	private JButton button1;
+	private int[][] nodes;
+//	private int[][] graph;
 
+	public ChartComponent(String creationWay, File inputfile)
+	{
+		if (creationWay == "Randomize")
+		{
+			GraphGenerating graph = new GraphGenerating();
+			nodes = graph.pRandomGeneration();
+		}
+		else if (creationWay == "Custom")
+		{
+			Scanner in = new Scanner(System.in);
+			System.out.println("Enter the number of vertices: ");
+			int vertices = in.nextInt();
+			System.out.println("Enter the number of edges(note, that number of edges has to be greater" +
+					" then half of the number of vertices): ");
+			int edges = in.nextInt();
+			GraphGenerating graph = new GraphGenerating(edges, vertices);
+			nodes = graph.pRandomGeneration();
+		}
+		else
+		{
+			ReadGraph g = new ReadGraph(inputfile);
+			//nt[][] graph = g.readMatrix();
+			nodes = g.readMatrix();
+		}
+	}
 	
 	public void paintComponent(Graphics g) {
 
-		GraphGenerating graph1 = new GraphGenerating(50,50);    //Here we generate the graph by calling the GraphGenerating object
+		//GraphGenerating graph1 = new GraphGenerating(50,50);    //Here we generate the graph by calling the GraphGenerating object
 
-		int[][] nodes;    //We create a matrix that will be the copy of the one generated in the GraphGenerating Object
+		//int[][] nodes;    //We create a matrix that will be the copy of the one generated in the GraphGenerating Object
 
-		nodes = graph1.pRandomGeneration();
-
-		VERTICES = graph1.getNumberOfVerticies();
+		//nodes = graph1.pRandomGeneration();
+		//nodes = graph;
+		VERTICES = nodes.length;
 
 //________________________________________________________________________________
 //PRINTS THE NODES
