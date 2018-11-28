@@ -50,6 +50,7 @@ class ChartComponent extends JComponent
 		{
 			GraphGenerating graph = new GraphGenerating();
 			nodes = graph.pRandomGeneration();
+			//System.out.println(graph.getChromaticNumber() + "---------");
 		}
 		else if (creationWay == "Custom")
 		{
@@ -61,12 +62,14 @@ class ChartComponent extends JComponent
 			int edges = in.nextInt();
 			GraphGenerating graph = new GraphGenerating(edges, vertices);
 			nodes = graph.pRandomGeneration();
+			//System.out.println(graph.getChromaticNumber());
 		}
 		else
 		{
 			ReadGraph g = new ReadGraph(inputfile);
 			//nt[][] graph = g.readMatrix();
 			nodes = g.readMatrix();
+			//System.out.println(graph.getChromaticNumber());
 		}
 	}
 	

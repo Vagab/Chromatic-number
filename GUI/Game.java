@@ -91,7 +91,7 @@ public class Game extends JFrame
             }
             else {
                 aWay = "File";
-                ReadGraph graph = new ReadGraph(inputfile);
+                //ReadGraph graph = new ReadGraph(inputfile);
                 //this.m = graph.readMatrix();
               /*for (int i = 0; i < m.length; i++)
               { for (int j = 0; j < m.length; j++)
@@ -113,16 +113,16 @@ public class Game extends JFrame
               Component f = panel.getTopLevelAncestor();
               ((Window)f).dispose();
               JFrame frame = new JFrame();
-
               frame.setSize(1600, 1450);
               frame.setTitle("Graph Generator");
               frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
+              JButton showColors = new JButton("Show Colors");
+              JPanel panel = new JPanel();
+              //panel.setLayout(new FlowLayout());
               JComponent component = new ChartComponent(aWay, inputfile);
+              //panel.add(showColors);
+              //panel.add(component);
               frame.add(component);
-
-
               frame.setVisible(true);
           }
       });
@@ -141,6 +141,7 @@ public class Game extends JFrame
       Game frame = new Game("Chromatic Number Game", inputfile);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       //Set up the content pane.
+
       frame.addComponentsToPane(frame.getContentPane());
       //Display the window.
       frame.pack();
