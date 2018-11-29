@@ -22,12 +22,12 @@ public class FirstPanel extends JPanel {
     final String file = "File";
     FlowLayout chromLayout = new FlowLayout();
 
-    public FirstPanel(JPanel mainPanel) {
+    public FirstPanel(JPanel mainPanel) throws IOException {
         //this.aWay = aWay;
         this.mainPanel = mainPanel;
         //setPreferredSize(new Dimension(400, 200));
         //setBackground(Color.GRAY);
-        add(switchButton());
+        //add(switchButton());
         final JPanel panel = new JPanel();
         panel.setLayout(chromLayout);
         JPanel controls = new JPanel();
@@ -52,14 +52,18 @@ public class FirstPanel extends JPanel {
         controls.add(customButton);
         controls.add(fileButton);
         //set action listener
+
         Mode1.addActionListener(new ActionListener() {
-            ReadAdjMatrix r = new ReadAdjMatrix();
             public void actionPerformed(ActionEvent e) {
                 String command = group.getSelection().getActionCommand();
-                //Check the selection
-                r.setGraph(command);
+                ReadAdjMatrix r = new ReadAdjMatrix();
+                try{ r.setGraph(command);
                 MainMenu_V1 main = new MainMenu_V1();
                 main.switchPanel(mainPanel, "SECOND");
+                } catch (IOException ex){ ex.printStackTrace();
+                }
+                //Check the selection
+
             }
         });
         panel.add(Mode1);
@@ -67,17 +71,5 @@ public class FirstPanel extends JPanel {
         panel.add(Mode3);
         add(panel, BorderLayout.NORTH);
         add(controls, BorderLayout.SOUTH);
-    }
-
-    private JButton switchButton() {
-        button = new JButton("Play");
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                MainMenu_V1 main = new MainMenu_V1();
-                main.switchPanel(mainPanel, "SECOND");
-            }
-        });
-        return button;
     }
 }

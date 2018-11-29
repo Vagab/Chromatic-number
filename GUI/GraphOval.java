@@ -69,7 +69,7 @@ class ChartComponent extends JPanel
 
 //	private int[][] graph;
 
-	public ChartComponent()
+	public ChartComponent() throws FileNotFoundException
 	{
 		ReadAdjMatrix r = new ReadAdjMatrix();
 		nodes = r.getGraph(path);

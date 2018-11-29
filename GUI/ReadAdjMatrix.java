@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 public class ReadAdjMatrix {
-    public int[][] getGraph(String path) {
+    public int[][] getGraph(String path) throws FileNotFoundException {
         Scanner input = new Scanner(new BufferedReader(new FileReader(path)));
 // pre-read in the number of rows/columns
         int rows = 0;
@@ -28,7 +28,7 @@ public class ReadAdjMatrix {
         return myArray;
 
     }
-    public void setGraph(String creationWay) {
+    public void setGraph(String creationWay) throws IOException {
         String path = new String("graph.txt");
         int[][] nodes;
         if (creationWay == "Randomize")
@@ -49,7 +49,7 @@ public class ReadAdjMatrix {
         }
         else
         {
-            nodes = this.getGraph(path);
+            nodes = this.getGraph("graph.txt");
         }
         String row = "";
         BufferedWriter writer = new BufferedWriter(new FileWriter("NP.txt"));
