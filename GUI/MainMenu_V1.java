@@ -13,7 +13,7 @@ public class MainMenu_V1 extends JFrame {
     private JMenuItem back;
     CardLayout cardLayout = new CardLayout();
 
-    public MainMenu_V1() throws FileNotFoundException {
+    public MainMenu_V1() {
         setTitle("I HATE THIS SHIT!!!!!!!!");
         setResizable(true);
         setSize(new Dimension(1600,1400));
@@ -61,7 +61,7 @@ public class MainMenu_V1 extends JFrame {
         card.show(container, panelName);
     }
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args)  {
         new MainMenu_V1().setVisible(true);
     }
 }

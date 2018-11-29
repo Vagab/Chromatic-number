@@ -9,7 +9,7 @@ public class SecondPanel extends JPanel {
     private JButton button;
     private JPanel mainPanel;
 
-    public SecondPanel(JPanel mainPanel) throws FileNotFoundException {
+    public SecondPanel(JPanel mainPanel)  {
         this.mainPanel = mainPanel;
         setPreferredSize(new Dimension(400, 200));
         setLayout(new BorderLayout());
