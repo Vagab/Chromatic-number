@@ -21,6 +21,7 @@ public class FirstPanel extends JPanel {
     final String custom = "Custom";
     final String file = "File";
     FlowLayout chromLayout = new FlowLayout();
+    JLabel imageLabel = new JLabel();
 
     public FirstPanel(JPanel mainPanel) throws IOException {
         //this.aWay = aWay;
@@ -51,7 +52,16 @@ public class FirstPanel extends JPanel {
         controls.add(randomButton);
         controls.add(customButton);
         controls.add(fileButton);
+        try {
+            ImageIcon ii = new ImageIcon(this.getClass().getResource("gif2.gif"));
+            imageLabel.setIcon(ii);
+
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
         //set action listener
+
 
         Mode1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -71,5 +81,6 @@ public class FirstPanel extends JPanel {
         panel.add(Mode3);
         add(panel, BorderLayout.NORTH);
         add(controls, BorderLayout.SOUTH);
+        add(imageLabel, BorderLayout.CENTER);
     }
 }

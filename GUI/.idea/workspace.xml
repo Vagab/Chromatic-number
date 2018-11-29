@@ -3,19 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="6e567d11-e0b3-46c0-94a4-34cfd01df570" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChartComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/ChartComponent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FirstPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/FirstPanel$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FirstPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/FirstPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FirstPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/FirstPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GraphGenerating.class" beforeDir="false" afterPath="$PROJECT_DIR$/GraphGenerating.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GraphOval.java" beforeDir="false" afterPath="$PROJECT_DIR$/GraphOval.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainMenu_V1.class" beforeDir="false" afterPath="$PROJECT_DIR$/MainMenu_V1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainMenu_V1.java" beforeDir="false" afterPath="$PROJECT_DIR$/MainMenu_V1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NP.txt" beforeDir="false" afterPath="$PROJECT_DIR$/NP.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReadAdjMatrix.class" beforeDir="false" afterPath="$PROJECT_DIR$/ReadAdjMatrix.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReadAdjMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/ReadAdjMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SecondPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/SecondPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graph.txt" beforeDir="false" afterPath="$PROJECT_DIR$/graph.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,13 +42,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="3614" />
+          <entry key="java" value="3785" />
           <entry key="txt" value="102" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3614" />
+          <entry key="JAVA" value="3785" />
           <entry key="PLAIN_TEXT" value="102" />
         </counts>
       </usages-collector>
@@ -66,8 +59,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FirstPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="61" column="54" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="54" />
+            <state relative-caret-position="1237">
+              <caret line="83" column="43" selection-start-line="83" selection-start-column="43" selection-end-line="83" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MainMenu_V1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="63" column="61" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
+            <state relative-caret-position="270">
+              <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1191#1192#0" expanded="true" />
@@ -138,12 +131,12 @@
         <entry file="file://$PROJECT_DIR$/NP.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/graph.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
@@ -193,12 +186,12 @@
         <option value="$PROJECT_DIR$/ReadTest.java" />
         <option value="$PROJECT_DIR$/GraphGenerating.java" />
         <option value="$PROJECT_DIR$/GraphOval.java" />
-        <option value="$PROJECT_DIR$/MainMenu_V1.java" />
         <option value="$PROJECT_DIR$/ReadAdjMatrix.java" />
-        <option value="$PROJECT_DIR$/FirstPanel.java" />
         <option value="$PROJECT_DIR$/SecondPanel.java" />
         <option value="$PROJECT_DIR$/NP.txt" />
         <option value="$PROJECT_DIR$/graph.txt" />
+        <option value="$PROJECT_DIR$/FirstPanel.java" />
+        <option value="$PROJECT_DIR$/MainMenu_V1.java" />
       </list>
     </option>
   </component>
@@ -236,7 +229,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543501379277" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543513393429" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -276,12 +269,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543435515957</updated>
-      <workItem from="1543435517471" duration="19289000" />
+      <workItem from="1543435517471" duration="20143000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19289000" />
+    <option name="totallyTimeSpent" value="20143000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -405,16 +398,6 @@
     <entry file="file://$PROJECT_DIR$/gif1.gif">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/FirstPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="61" column="54" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SecondPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -459,22 +442,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainMenu_V1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="63" column="61" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1191#1192#0" expanded="true" />
-            <element signature="e#1237#1238#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NP.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
     </entry>
@@ -482,6 +453,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FirstPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1237">
+          <caret line="83" column="43" selection-start-line="83" selection-start-column="43" selection-end-line="83" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainMenu_V1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1191#1192#0" expanded="true" />
+            <element signature="e#1237#1238#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -16,7 +16,7 @@ public class MainMenu_V1 extends JFrame {
     public MainMenu_V1() throws IOException{
         setTitle("I HATE THIS SHIT!!!!!!!!");
         setResizable(true);
-        setSize(new Dimension(1600,1400));
+        setSize(new Dimension(500,500));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setJMenuBar(createMainMenu());
         setLocationRelativeTo(null);
