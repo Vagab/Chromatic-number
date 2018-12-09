@@ -1,1 +1,1 @@
-# Chromatic Number
+# Chromatic-number

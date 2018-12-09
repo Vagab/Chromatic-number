@@ -24,18 +24,12 @@ public class FirstPanel extends JPanel {
     JLabel imageLabel = new JLabel();
 
     public FirstPanel(JPanel mainPanel) throws IOException {
-        //this.aWay = aWay;
         this.mainPanel = mainPanel;
-        //setPreferredSize(new Dimension(400, 200));
-        //setBackground(Color.GRAY);
-        //add(switchButton());
         final JPanel panel = new JPanel();
         panel.setLayout(chromLayout);
         JPanel controls = new JPanel();
         setLayout(new BorderLayout());
         controls.setLayout(new FlowLayout());
-        //JLabel label= new JLabel();
-        //label.setIcon(new ImageIcon("/Users/sterben/Desktop/Java/Project/Chromatic-Number/GUI/ring.jpg"));
         //create radiobuttons
         randomButton = new JRadioButton(random);
         randomButton.setActionCommand(random);
@@ -67,11 +61,10 @@ public class FirstPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 String command = group.getSelection().getActionCommand();
                 ReadAdjMatrix r = new ReadAdjMatrix();
-                try{ r.setGraph(command);
-                MainMenu_V1 main = new MainMenu_V1();
-                main.switchPanel(mainPanel, "SECOND");
-                } catch (IOException ex){ ex.printStackTrace();
-                }
+                try { r.setGraph(command);
+                    MainMenu_V1 main = new MainMenu_V1();
+                    main.switchPanel(mainPanel, "SECOND");
+                } catch (IOException ex) { ex.printStackTrace(); }
                 //Check the selection
 
             }

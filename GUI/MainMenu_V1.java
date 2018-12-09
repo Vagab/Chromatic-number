@@ -1,8 +1,8 @@
 import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import java.util.*;
-import java.io.*;
+        import java.awt.event.*;
+        import javax.swing.*;
+        import java.util.*;
+        import java.io.*;
 
 public class MainMenu_V1 extends JFrame {
 
@@ -11,20 +11,23 @@ public class MainMenu_V1 extends JFrame {
     private JMenuItem exit;
     private JPanel mainPanel;
     private JMenuItem back;
+    private SecondPanel sec;
     CardLayout cardLayout = new CardLayout();
 
     public MainMenu_V1() throws IOException{
-        setTitle("I HATE THIS SHIT!!!!!!!!");
+        setTitle("My Layout");
         setResizable(true);
-        setSize(new Dimension(500,500));
+        // setSize(new Dimension(500,500));
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setJMenuBar(createMainMenu());
         setLocationRelativeTo(null);
 
         mainPanel = new JPanel();
         mainPanel.setLayout(cardLayout);
+        sec = new SecondPanel(mainPanel);
         mainPanel.add(new FirstPanel(mainPanel), "FIRST");
-        mainPanel.add(new SecondPanel(mainPanel), "SECOND");
+        mainPanel.add(sec, "SECOND");
 
         setContentPane(mainPanel);
     }
@@ -45,7 +48,7 @@ public class MainMenu_V1 extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                cardLayout.previous(mainPanel);
+                cardLayout.first(mainPanel);
             }
         });
 
@@ -57,6 +60,7 @@ public class MainMenu_V1 extends JFrame {
     }
 
     public void switchPanel(Container container, String panelName) {
+        mainPanel.add(sec, "SECOND");
         CardLayout card = (CardLayout) (container.getLayout());
         card.show(container, panelName);
     }

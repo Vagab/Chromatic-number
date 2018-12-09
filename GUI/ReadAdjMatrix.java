@@ -49,6 +49,7 @@ public class ReadAdjMatrix {
         }
         else
         {
+            System.out.println("Creating graph");
             nodes = this.getGraph("graph.txt");
         }
         String row = "";
