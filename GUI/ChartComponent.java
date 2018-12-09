@@ -102,7 +102,7 @@ public class ChartComponent extends JPanel
 
 	public void setThings()
 	{
-		String path = "/Users/sterben/Downloads/AlluNeed5/NP.txt";
+		String path = "/Users/sterben/Desktop/Java/Project/Chromatic-Number/GUI/NP.txt";
 		try {
 			ReadAdjMatrix r = new ReadAdjMatrix();
 			nodes = r.getGraph(path);
