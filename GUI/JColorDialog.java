@@ -56,7 +56,7 @@ public class JColorDialog extends JFrame{
         btnSelectColor.setBounds(10,279,150,23);
         contentPane.add(btnSelectColor);*/
 
-        final JButton btnPreview = new JButton("cuurent-stage");
+        final JButton btnPreview = new JButton("Choose Color");
         btnPreview.addActionListener(new ActionListener() {
 
 

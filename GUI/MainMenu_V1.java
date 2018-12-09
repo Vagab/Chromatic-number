@@ -12,9 +12,10 @@ public class MainMenu_V1 extends JFrame {
     private JPanel mainPanel;
     private JMenuItem back;
     private SecondPanel sec;
+
     CardLayout cardLayout = new CardLayout();
 
-    public MainMenu_V1() throws IOException{
+    public MainMenu_V1() {
         setTitle("My Layout");
         setResizable(true);
         // setSize(new Dimension(500,500));
@@ -47,7 +48,8 @@ public class MainMenu_V1 extends JFrame {
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                mainPanel.add(new FirstPanel(mainPanel), "FIRST");
+                mainPanel.add(new SecondPanel(mainPanel), "SECOND");
                 cardLayout.first(mainPanel);
             }
         });

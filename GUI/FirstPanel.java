@@ -23,7 +23,7 @@ public class FirstPanel extends JPanel {
     FlowLayout chromLayout = new FlowLayout();
     JLabel imageLabel = new JLabel();
 
-    public FirstPanel(JPanel mainPanel) throws IOException {
+    public FirstPanel(JPanel mainPanel) {
         this.mainPanel = mainPanel;
         final JPanel panel = new JPanel();
         panel.setLayout(chromLayout);

@@ -24,6 +24,7 @@ public class ColorationGame1
 	{
 		return colorsDataBase[i];
 	}
+
 	
 	public int getMaxColors()	//maybe delete later if useless
 	{

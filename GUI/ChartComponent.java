@@ -65,10 +65,7 @@ public class ChartComponent extends JPanel
 	private int xHINT;
 	private int yHINT;
 
-	String path = "/Users/lucas/Desktop/Project/AlluNeed5/NP.txt";
-
-
-	public ChartComponent() throws FileNotFoundException
+	public ChartComponent()
 	{
 
 
@@ -79,7 +76,7 @@ public class ChartComponent extends JPanel
 		MouseMotionListener entered = new MouseEnteredListener();
 		addMouseMotionListener(entered);
 
-		ColorDataBase = new ColorationGame1();		//creates the color database for each node
+		ColorDataBase = new ColorationGame1();//creates the color database for each node
 
 		ColorBox = new JColorDialog();
 		ColorBox.setVisible(false);
@@ -95,9 +92,6 @@ public class ChartComponent extends JPanel
 		add(ColorDialog, BorderLayout.NORTH);
 		add(Hints, BorderLayout.NORTH);
 
-
-
-
 	}
 
 	public void setThings()
@@ -109,6 +103,7 @@ public class ChartComponent extends JPanel
 		} catch (FileNotFoundException exc) {
 			exc.printStackTrace();
 		}
+
 		VERTICES = nodes.length;
 		memoryX = new int[VERTICES];    //We create an array that will store the values of x and the other for y
 		memoryY = new int[VERTICES];
