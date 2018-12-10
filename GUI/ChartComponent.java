@@ -58,7 +58,8 @@ public class ChartComponent extends JPanel
 	private JColorDialog ColorBox;
 
 	private JButton Hints;
-	private Color HintColor;
+	private Color HintColor1;
+	private Color HintColor2;
 	private String HintString = "";
 	private boolean thereIsHint = false;
 	private boolean foundHint = false;
@@ -76,7 +77,7 @@ public class ChartComponent extends JPanel
 		MouseMotionListener entered = new MouseEnteredListener();
 		addMouseMotionListener(entered);
 
-		ColorDataBase = new ColorationGame1();//creates the color database for each node
+		ColorDataBase = new ColorationGame1();		//creates the color database for each node
 
 		ColorBox = new JColorDialog();
 		ColorBox.setVisible(false);
@@ -92,6 +93,9 @@ public class ChartComponent extends JPanel
 		add(ColorDialog, BorderLayout.NORTH);
 		add(Hints, BorderLayout.NORTH);
 
+
+
+
 	}
 
 	public void setThings()
@@ -103,7 +107,6 @@ public class ChartComponent extends JPanel
 		} catch (FileNotFoundException exc) {
 			exc.printStackTrace();
 		}
-
 		VERTICES = nodes.length;
 		memoryX = new int[VERTICES];    //We create an array that will store the values of x and the other for y
 		memoryY = new int[VERTICES];
@@ -224,21 +227,21 @@ public class ChartComponent extends JPanel
 		}
 
 		if(lost){
-			g2.setColor(Color.BLACK);
+			g2.setColor(Color.BLACK);	//when you lose
 			g2.fillRect(400, 300, 500, 200);
 			g2.setFont(new Font("TimesRoman", Font.PLAIN, 40));
 			g2.setPaint(gp4);
 			g2.drawString("  You Have Died", 500, 400);
 		}
 		if(won){
-			g2.setPaint(gp1);
+			g2.setPaint(gp1);	//when you win
 			g2.fillRect(400, 300, 500, 200);
 			g2.setFont(new Font("TimesRoman", Font.PLAIN, 40));
 			g2.setPaint(gp4);
 			g2.drawString(" You Have Won", 500, 400);
 		}
 
-		for(int i=0; i<memoryX.length; i++){
+		for(int i=0; i<memoryX.length; i++){	//safety loop to discard potential mistakes when showing the hint node
 			if(memoryX[i] == xHINT && ColorDataBase.getColor(i) != null){
 				thereIsHint = false;
 				xHINT = 0;
@@ -246,12 +249,14 @@ public class ChartComponent extends JPanel
 			}
 		}
 
-		if(foundHint){
+		if(foundHint){			//prints the hints
 			if(thereIsHint){
 				g2.setColor(Color.WHITE);
 				g2.fillRect(980, 5, 500, 80);
-				g2.setPaint(HintColor);
-				g2.fillRect(1300, 20, 50, 50);
+				g2.setPaint(HintColor1);
+				g2.fillRect(1300, 15, 30, 30);
+				g2.setPaint(HintColor2);
+				g2.fillRect(1300, 45, 30, 30);
 				g2.setFont(new Font("TimesRoman", Font.PLAIN, 20));
 				g2.setPaint(gp1);
 				g2.drawString(HintString, 1000, 50);
@@ -261,7 +266,7 @@ public class ChartComponent extends JPanel
 				g2.drawOval(xHINT, yHINT, 16, 16);
 			}
 			else{
-				g2.setColor(Color.WHITE);
+				g2.setColor(Color.WHITE);	//if no hints found in the listener
 				g2.fillRect(980, 5, 500, 80);
 				g2.setFont(new Font("TimesRoman", Font.PLAIN, 20));
 				g2.setPaint(gp1);
@@ -373,27 +378,38 @@ public class ChartComponent extends JPanel
 		public void actionPerformed(ActionEvent event)
 		{
 			System.out.println("Hints");
-			//for(int i=0; i<memoryX.length; i++){
-			//	if(memoryX[i]<=v && memoryX[i]+30>=v && memoryY[i]<=w && memoryY[i]+30>w){
+
 			foundHint = true;
 
 			for(int i=0; i<nodes.length; i++){
 				if(ColorDataBase.getColor(i) == null){
+					Color testIfCanBeAssigned1;
+					Color testIfCanBeAssigned2 = null;
 
-					for(int j=0; j<nodes.length; j++){
+					for(int j=0; j<nodes.length; j++){	//main loop for the first hint color
 						if (nodes[i][j] == 1 && i != j && ColorDataBase.getColor(j) != null) {
-							Color testIfCanBeAssigned = ColorDataBase.getColor(j);
-							System.out.println("HINT: Don't paint the node " + i + " in: " + testIfCanBeAssigned);
+
+							testIfCanBeAssigned1 = ColorDataBase.getColor(j);
+
+
 							HintString = "HINT: Don't paint the node " + i + " in: ";
-							HintColor = testIfCanBeAssigned;
+							HintColor1 = testIfCanBeAssigned1;
+
 							xHINT = memoryX[i];
 							yHINT = memoryY[i];
 							thereIsHint = true;
-							break;
-							//if(testIfCanBeAssigned != null){
-							//if(i!=j){
-							//	if(nodes[i][j] == 1 && ColorDataBase.getColor(j) == testIfCanBeAssigned && ColorDataBase.getColor(j) != null){
 
+							for(int k=0; k<nodes.length; k++){	//loop to assign second hint color
+								if (nodes[i][k] == 1 && i!=k && ColorDataBase.getColor(k) != testIfCanBeAssigned1 && ColorDataBase.getColor(k) != null) {
+									testIfCanBeAssigned2 = ColorDataBase.getColor(k);
+									HintColor2 = testIfCanBeAssigned2;
+									if (testIfCanBeAssigned2 != null){
+										break;
+									}
+								}
+							}
+
+							break;
 
 						}
 						else
@@ -405,10 +421,11 @@ public class ChartComponent extends JPanel
 					repaint();
 					break;}
 				else
-					HintString = "HINT: Choose a new color";
-				HintColor = Color.WHITE;
+					HintString = "HINT: Choose a new color";	//if no colors, then you should create a new one
+				HintColor1 = Color.WHITE;	//and resets the colors to white
+				HintColor2 = Color.WHITE;
 				repaint();
-				//else{
+
 
 			}
 		}
@@ -439,9 +456,4 @@ class Location
 		x = center.x + (Math.cos(angle) * d);
 		y = center.y + (Math.sin(angle) * d);
 	}
-
-
-
-
-
 }
